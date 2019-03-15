@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+var fixer =  require('./helpers/fixer');
 var app_port  =process.env.APP_PORT;
 
 
@@ -31,6 +31,11 @@ var db_info = {
 
 db.connect(db_info);
 
+const rateRoutes = require('./routes/rate')
+app.use('/',rateRoutes);
+
+fixer.getFixer();
+setInterval(fixer.getFixer,1000*60*30)
 
 // SERVER
 

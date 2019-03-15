@@ -1,0 +1,35 @@
+version: '3'
+services:
+  mongo:
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'cookie'
+      MONGO_INITDB_ROOT_PASSWORD: 'monster123456'
+      MONGO_INITDB_DATABASE: 'valiu_test'
+    image: mongo
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+  valiu_test:
+    container_name: valiu_test
+    build: .
+    restart: always
+    environment:
+      WAIT_HOSTS: mongo:27017
+      DB_SERVER: '${DB_SERVER}'
+      DB_PORT: '${DB_PORT}'
+      DB_NAME: '${DB_NAME}'
+      DB_USER: '${DB_USER}'
+      DB_PWD: '${DB_PWD}'
+      DB_AUTH: '${DB_AUTH}'
+      DEBUG: 1
+      APP_PORT: '${APP_PORT}'
+      NAME: "valiu_test"
+      # MONGO_INITDB_ROOT_USERNAME: 'cookie'
+      # MONGO_INITDB_ROOT_PASSWORD: 'monster123456'
+      # MONGO_INITDB_DATABASE: 'valiu_test'
+    ports:
+      - '3000:3000'
+    links:
+      - mongo
+    depends_on:
+      - mongo
