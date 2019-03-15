@@ -15,21 +15,21 @@ pipeline {
         stage('Stop Containers') {
             steps {
                 echo '> Stop containers..'
-                sh 'sudo docker-compose stop'
+                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose stop'
             }
         }
         
         stage('Build Containers') {
             steps {
                 echo '> Stop containers..'
-                sh 'sudo docker-compose build'
+                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose build'
             }
         }
         
         stage('Up Containers') {
             steps {
                 echo '> Stop containers..'
-                sh 'sudo docker-compose up'
+                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose up'
             }
         }
      }
