@@ -11,7 +11,7 @@ pipeline {
                 checkout scm
             }
         }
-        
+
         stage('Stop Containers') {
             steps {
             sshagent(['miguel-google']) {
@@ -20,18 +20,18 @@ pipeline {
               }
             }
         }
-        
+
         stage('Build Containers') {
             steps {
                 echo '> Stop containers..'
                 sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose build'
             }
         }
-        
+
         stage('Up Containers') {
             steps {
                 echo '> Stop containers..'
-                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose up'
+                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose up -d'
             }
         }
      }
