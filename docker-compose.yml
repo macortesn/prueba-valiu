@@ -24,9 +24,6 @@ services:
       DEBUG: 1
       APP_PORT: '${APP_PORT}'
       NAME: "valiu_test"
-      # MONGO_INITDB_ROOT_USERNAME: 'cookie'
-      # MONGO_INITDB_ROOT_PASSWORD: 'monster123456'
-      # MONGO_INITDB_DATABASE: 'valiu_test'
     ports:
       - '3000:3000'
     links:
