@@ -14,8 +14,10 @@ pipeline {
         
         stage('Stop Containers') {
             steps {
+            sshagent(['miguel-google']) {
                 echo '> Stop containers..'
                 sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose stop'
+              }
             }
         }
         
