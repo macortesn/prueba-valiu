@@ -6,7 +6,7 @@ const RateSchema = mongoose.Schema({
   base: String,
   rates: Object,
   date: String ,
-  timestamp:String 
+  timestamp:String
 });
 
 module.exports =  mongoose.model('Rate', RateSchema);

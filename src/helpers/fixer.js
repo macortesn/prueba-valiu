@@ -3,7 +3,7 @@ const router =  express.Router()
 const axios = require('axios')
 const Rate = require('../models/rate')
 
-var key = "b5679e20c243cb65512b66b40f295a89"
+var key = process.env.API_KEY_FIXER
 
 exports.getFixer =  async function(){
   var lastRate=await Rate.findOne({}, {}, { sort: { '_id' : -1 } }).exec();
@@ -34,7 +34,6 @@ exports.getFixer =  async function(){
       else {
         console.log(error);
       }
-
     }
   )
 }
