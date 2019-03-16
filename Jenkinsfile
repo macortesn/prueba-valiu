@@ -16,7 +16,7 @@ pipeline {
             steps {
             sshagent(['miguel-google']) {
                 echo '> Stop containers..'
-                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose stop && git pull origin master'
+                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose stop && sudo git pull origin master'
               }
             }
         }
