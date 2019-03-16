@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-
 //DB
 
 var db = require('../config/db');
@@ -35,7 +34,7 @@ const rateRoutes = require('./routes/rate')
 app.use('/',rateRoutes);
 
 fixer.getFixer();
-setInterval(fixer.getFixer,1000*60*30)
+setInterval(fixer.getFixer,1000*60*parseFloat(process.env.TIME_MINUTES));
 
 // SERVER
 

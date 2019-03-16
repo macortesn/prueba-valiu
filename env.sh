@@ -5,3 +5,5 @@ export DB_NAME='valiu_test';
 export DB_USER='cookie';
 export DB_PWD='monster123456';
 export DB_AUTH='admin';
+export TIME_MINUTES='30';
+export API_KEY_FIXER='b5679e20c243cb65512b66b40f295a89';

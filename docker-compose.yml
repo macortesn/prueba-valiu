@@ -21,11 +21,13 @@ services:
       DB_USER: '${DB_USER}'
       DB_PWD: '${DB_PWD}'
       DB_AUTH: '${DB_AUTH}'
+      TIME_MINUTES: '${TIME_MINUTES}'
+      API_KEY_FIXER: '${API_KEY_FIXER}'
       DEBUG: 1
       APP_PORT: '${APP_PORT}'
       NAME: "valiu_test"
     ports:
-      - '3000:3000'
+      - '${APP_PORT}:${APP_PORT}'
     links:
       - mongo
     depends_on:
