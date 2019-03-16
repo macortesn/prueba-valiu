@@ -16,21 +16,21 @@ pipeline {
             steps {
             sshagent(['miguel-google']) {
                 echo '> Stop containers..'
-                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose stop'
+                sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose stop && git pull origin master'
               }
             }
         }
 
         stage('Build Containers') {
             steps {
-                echo '> Stop containers..'
+                echo '> Build containers..'
                 sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose build'
             }
         }
 
         stage('Up Containers') {
             steps {
-                echo '> Stop containers..'
+                echo '> Up containers..'
                 sh 'cd /home/macortesn/prueba-valiu/ && sudo docker-compose up -d'
             }
         }
